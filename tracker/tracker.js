@@ -5,18 +5,18 @@
     localStorage.setItem('cf_session_id', sessionId);
   }
 
-  // 🚀 Switch automatically between local development and production backends
   const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:5000/api/track' 
-    : 'https://causalfunnel-analytics-4k49.onrender.com/api/track'; // 🎯 Fixed endpoint path!
+    : 'https://causalfunnel-analytics-4k49.onrender.com/api/track';
 
   function sendEvent(eventType, extraData = {}) {
+    // 🎯 Wrap coordinates cleanly inside click_data to match your Mongoose Schema fields
     const payload = {
       session_id: sessionId,
       event_type: eventType,
       url: window.location.href,
       timestamp: new Date().toISOString(),
-      ...extraData // 🎯 Spreads x, y directly onto the root object level for your DB schema
+      click_data: extraData 
     };
 
     console.log("Tracker sending to API:", payload);
