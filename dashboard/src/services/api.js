@@ -1,4 +1,7 @@
-const BASE_URL = 'http://localhost:5000/api';
+// Automatically handles switching between local development and production environments
+const BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:5000/api'
+  : 'https://causalfunnel-analytics-4k49.onrender.com/api';
 
 export const fetchSessions = async () => {
   const response = await fetch(`${BASE_URL}/sessions`);
