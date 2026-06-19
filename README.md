@@ -1,14 +1,22 @@
 # CausalFunnel Analytics Platform
 
-## User Analytics Application
+A full-stack user analytics platform built as part of the CausalFunnel Full Stack Engineer Assignment.
 
-A full-stack analytics platform built for the CausalFunnel Full Stack Engineer assignment. The application tracks user interactions, stores telemetry events in MongoDB, and provides session analytics and heatmap visualizations through a dashboard.
+The application tracks user interactions on a webpage, stores analytics events in MongoDB, and provides a dashboard for session analysis, user journey visualization, and click heatmap generation.
 
-## Live Demo
+---
 
-* **Tracking Demo Site:** https://causalfunnel-test-site.onrender.com/demo.html
-* **Analytics Dashboard:** https://causalfunnel-dashboard.onrender.com/
-  
+## Live Deployments
+
+### Tracking Demo Website
+
+https://causalfunnel-test-site.onrender.com/demo.html
+
+### Analytics Dashboard
+
+https://causalfunnel-dashboard.onrender.com/
+
+
 
 ---
 
@@ -16,35 +24,51 @@ A full-stack analytics platform built for the CausalFunnel Full Stack Engineer a
 
 ### Event Tracking
 
-* Tracks `page_view` events
-* Tracks `click` events
-* Generates persistent session IDs using localStorage
-* Captures page URL and timestamp
-* Records click coordinates (x, y)
+The tracking script automatically captures:
 
-### Session Analytics
+* Page View Events
+* Click Events
+
+Each event contains:
+
+* Session ID
+* Event Type
+* Current Page URL
+* Timestamp
+* Click Coordinates (x, y)
+
+---
+
+### Session Analytics Dashboard
 
 * View all tracked sessions
-* Display event counts per session
+* Display total events per session
 * Inspect complete user journeys
-* Events ordered chronologically
+* Chronological event ordering
+
+---
 
 ### Heatmap Visualization
 
-* Select page URLs
+* Select a tracked page
 * Visualize click locations
 * Analyze user interaction patterns
+* Identify high-engagement regions
 
 ---
 
 ## Tech Stack
 
-### Frontend
+### Frontend Dashboard
 
 * React.js
 * JavaScript
-* HTML5
-* CSS3
+* CSS
+
+### Tracking Layer
+
+* Vanilla JavaScript
+* Browser Local Storage
 
 ### Backend
 
@@ -58,7 +82,7 @@ A full-stack analytics platform built for the CausalFunnel Full Stack Engineer a
 
 ### Deployment
 
-* Render
+* Render Cloud Platform
 
 ---
 
@@ -66,20 +90,28 @@ A full-stack analytics platform built for the CausalFunnel Full Stack Engineer a
 
 ```text
 causalfunnel-analytics/
-│
+
 ├── backend/
 │   ├── controllers/
 │   ├── models/
 │   ├── routes/
-│   └── server.js
+│   ├── server.js
+│   └── package.json
 │
-├── frontend/
-│   ├── dashboard/
-│   ├── tracker/
-│   └── public/
+├── dashboard/
+│   ├── src/
+│   ├── public/
+│   └── package.json
 │
+├── tracker/
+│   ├── tracker.js
+│   └── demo.html
+│
+├── .gitignore
 └── README.md
 ```
+
+---
 
 ## API Endpoints
 
@@ -89,11 +121,15 @@ causalfunnel-analytics/
 POST /api/track
 ```
 
+Stores page view and click telemetry events.
+
 ### Get Sessions
 
 ```http
 GET /api/sessions
 ```
+
+Returns all tracked sessions with event counts.
 
 ### Get Session Events
 
@@ -101,15 +137,19 @@ GET /api/sessions
 GET /api/sessions/:sessionId
 ```
 
+Returns ordered event history for a specific session.
+
 ### Get Heatmap Data
 
 ```http
 GET /api/heatmap?pageUrl=<page_url>
 ```
 
+Returns click coordinates used for heatmap rendering.
+
 ---
 
-## Local Setup
+## Local Development Setup
 
 ### Clone Repository
 
@@ -118,7 +158,7 @@ git clone <repository-url>
 cd causalfunnel-analytics
 ```
 
-### Install Dependencies
+### Install Backend Dependencies
 
 ```bash
 cd backend
@@ -127,23 +167,23 @@ npm install
 
 ### Configure Environment Variables
 
-Create a `.env` file inside the backend directory:
+Create a `.env` file inside the backend folder:
 
 ```env
 PORT=5000
 MONGO_URI=<your_mongodb_connection_string>
 ```
 
-### Start Backend
+### Start Backend Server
 
 ```bash
 npm run dev
 ```
 
-### Start Frontend
+### Start Dashboard
 
 ```bash
-cd frontend
+cd dashboard
 npm install
 npm start
 ```
@@ -152,26 +192,33 @@ npm start
 
 ## Design Decisions
 
-* Session IDs are stored in browser localStorage.
-* MongoDB is used for scalable event storage.
-* Event schema supports flexible telemetry payloads.
-* Backend remains stateless for improved scalability.
-* Heatmap data is generated from stored click coordinates.
+### Stateless Session Tracking
+
+Sessions are managed using browser localStorage identifiers. This removes server-side session storage requirements and enables easy horizontal scaling.
+
+### Flexible Event Schema
+
+Telemetry events contain different metadata depending on event type. A flexible schema design was chosen to support future event expansion without frequent schema migrations.
+
+### Cloud-Native Architecture
+
+MongoDB Atlas and Render were selected to provide scalable cloud deployment with minimal operational overhead.
 
 ---
 
 ## Future Enhancements
 
-* Session replay
-* Heatmap intensity clustering
-* Conversion funnel analytics
-* User authentication
-* Advanced reporting and filters
+* Session Replay
+* Heatmap Density Clustering
+* Funnel Analytics
+* Device & Browser Analytics
+* Conversion Tracking
+* Real-Time Dashboard Updates
 
 ---
 
 ## Author
 
-**Sathish Kodari**
+Sathish Kodari
 
-Built as part of the CausalFunnel Full Stack Engineer Assignment.
+Built for the CausalFunnel Full Stack Engineer Assignment.
