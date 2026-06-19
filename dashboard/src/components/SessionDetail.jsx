@@ -267,10 +267,10 @@ export default function SessionDetail({ events, sessionId }) {
                       {event.eventType}
                     </span>
                     
-                    {/* 💡 SMART CONTEXT BADGE: Tells you EXACTLY what button/item was hit */}
+                    {/*  SMART CONTEXT BADGE: Tells you EXACTLY what button/item was hit */}
                     {isClick && (
                       <span style={{ fontSize: '12px', color: '#1e293b', fontWeight: '700', background: '#dcfce7', padding: '3px 8px', borderRadius: '4px', border: '1px solid #bbf7d0' }}>
-                        🎯 Clicked: {clickedItemName}
+                         Clicked: {clickedItemName}
                       </span>
                     )}
                   </div>
