@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CausalFunnel Analytics Test Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      height: 2000px; 
+      background: #f4f6f9;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .secondary-btn {
+      background-color: #28a745;
+    }
+    .secondary-btn:hover {
+      background-color: #218838;
+    }
+
+    /* 📊 Simulator Hover Effects Stylesheet rules */
+    .sim-btn-rage { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+    .sim-btn-rage:hover { background: #fecaca; transform: translateY(-1px); }
+    
+    .sim-btn-dead { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+    .sim-btn-dead:hover { background: #fde68a; transform: translateY(-1px); }
+    
+    .sim-btn-engage { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .sim-btn-engage:hover { background: #bbf7d0; transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Analytics Tracker Demo</h1>
+    <p>Click anywhere on this page, or use the buttons below to generate analytics data.</p>
+    <button id="btn-1">Action Button A</button>
+    <button id="btn-2" class="secondary-btn">Action Button B</button>
+  </div>
+
+  <div id="demo-simulation-panel" style="
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #ffffff;
+    border: 2px solid #1e293b;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    width: 280px;
+    text-align: left;
+    z-index: 99999;
+    display: none; /*  Secretly hidden out of plain sight */
+  ">
+    <div style="margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">
+      <h4 style="margin: 0; color: #0f172a; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+        🤖 Behavior Simulator
+      </h4>
+      <p style="margin: 4px 0 0 0; color: #64748b; font-size: 11px;">Inject mock trace flows instantly</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <button onclick="runRageDemo()" class="sim-btn-rage" style="padding: 10px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; text-align: left; cursor: pointer; transition: all 0.2s; margin: 0; width: 100%;">
+         Simulate Potential Rage Clicks
+      </button>
+      
+      <button onclick="runDeadDemo()" class="sim-btn-dead" style="padding: 10px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; text-align: left; cursor: pointer; transition: all 0.2s; margin: 0; width: 100%;">
+         Simulate Potential Dead Clicks
+      </button>
+      
+      <button onclick="runEngagementDemo()" class="sim-btn-engage" style="padding: 10px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; text-align: left; cursor: pointer; transition: all 0.2s; margin: 0; width: 100%;">
+         Simulate High Engagement
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // 🔑 KEYBOARD TOGGLE LISTENER: Ctrl + M shows/hides control panel panel
+    window.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && e.key.toLowerCase() === 'm') {
+        const panel = document.getElementById('demo-simulation-panel');
+        if (panel.style.display === 'none') {
+          panel.style.display = 'block';
+          console.log("🔓 Simulator Panel Revealed!");
+        } else {
+          panel.style.display = 'none';
+          console.log("🔒 Simulator Panel Hidden!");
+        }
+      }
+    });
+
+    // 1 Direct DOM Element Selector Target: Rapid fires directly onto Action Button A
+    function runRageDemo() {
+      console.log("Targeting Action Button A bounds dynamically for Rage Clicks...");
+      const btnA = document.getElementById('btn-1');
+      if (!btnA) return;
+
+      let clickCount = 0;
+      const interval = setInterval(() => {
+        const rect = btnA.getBoundingClientRect();
+        const clickEvent = new MouseEvent('click', {
+          clientX: rect.left + (rect.width / 2),
+          clientY: rect.top + (rect.height / 2),
+          bubbles: true
+        });
+        btnA.dispatchEvent(clickEvent);
+        clickCount++;
+        if (clickCount >= 5) clearInterval(interval);
+      }, 80);
+    }
+
+    
+    function runDeadDemo() {
+      console.log("Targeting general page background layout bounds for Dead Clicks...");
+      let clickCount = 0;
+      const interval = setInterval(() => {
+        const clickEvent = new MouseEvent('click', {
+          clientX: 100,
+          clientY: 100,
+          bubbles: true
+        });
+        document.body.dispatchEvent(clickEvent);
+        clickCount++;
+        if (clickCount >= 4) clearInterval(interval);
+      }, 1100);
+    }
+
+    
+    function runEngagementDemo() {
+      console.log("Simulating full channel interactions by alternating button targets...");
+      const btnA = document.getElementById('btn-1');
+      const btnB = document.getElementById('btn-2');
+      if (!btnA || !btnB) return;
+
+      const sequence = [btnA, btnA, btnB, btnB];
+      
+      sequence.forEach((element, index) => {
+        setTimeout(() => {
+          const rect = element.getBoundingClientRect();
+          const clickEvent = new MouseEvent('click', {
+            clientX: rect.left + (rect.width / 2),
+            clientY: rect.top + (rect.height / 2),
+            bubbles: true
+          });
+          element.dispatchEvent(clickEvent);
+        }, index * 400);
+      });
+    }
+  </script>
+
+  <script src="tracker.js"></script>
+</body>
+</html>
