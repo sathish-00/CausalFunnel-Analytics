@@ -21,7 +21,7 @@ const EventSchema = new mongoose.Schema({
     default: Date.now 
   },
   click_data: {
-    type: Object, 
+    type: Object, // 🎯 Changed to Object to dynamically accept tracking elements without throwing strict errors
     default: {}
   }
 });
