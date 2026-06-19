@@ -5,10 +5,10 @@
     localStorage.setItem('cf_session_id', sessionId);
   }
 
-  
+  // 🚀 Switch automatically between local development and production backends
   const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:5000/api/events'
-    : 'https://causalfunnel-analytics-4k49.onrender.com/api/events';
+    ? 'http://localhost:5000/api/track' 
+    : 'https://causalfunnel-analytics-4k49.onrender.com/api/track'; // 🎯 Fixed endpoint path!
 
   function sendEvent(eventType, extraData = {}) {
     const payload = {
@@ -16,7 +16,7 @@
       event_type: eventType,
       url: window.location.href,
       timestamp: new Date().toISOString(),
-      click_data: extraData
+      ...extraData // 🎯 Spreads x, y directly onto the root object level for your DB schema
     };
 
     console.log("Tracker sending to API:", payload);
@@ -65,7 +65,7 @@
       window_width: window.innerWidth,
       window_height: window.innerHeight,
       targetId: targetId,
-      targetText: targetText || 'Page Canvas Body', // Clean fallback for dashboard UI
+      targetText: targetText || 'Page Canvas Body',
       tagName: tagName
     });
   });
