@@ -21,10 +21,8 @@ const EventSchema = new mongoose.Schema({
     default: Date.now 
   },
   click_data: {
-    x: { type: Number },
-    y: { type: Number },
-    window_width: { type: Number },
-    window_height: { type: Number }
+    type: Object, 
+    default: {}
   }
 });
 
