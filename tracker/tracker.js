@@ -5,7 +5,10 @@
     localStorage.setItem('cf_session_id', sessionId);
   }
 
-  const API_URL = 'http://localhost:5000/api/track';
+  
+  const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:5000/api/events'
+    : 'https://causalfunnel-analytics-4k49.onrender.com/api/events';
 
   function sendEvent(eventType, extraData = {}) {
     const payload = {
@@ -28,16 +31,12 @@
   sendEvent('page_view');
 
   document.addEventListener('click', function (event) {
-    // 1. Identify the target (and bubble up to find buttons if needed)
     let targetElement = event.target.closest('button, a, input, [id]') || event.target;
     
     let targetId = targetElement.id || '';
     let tagName = (targetElement.tagName || 'BODY').toUpperCase();
-    
-    // 2. Extract text, cleaning whitespace and limiting length
     let targetText = (targetElement.innerText || targetElement.value || '').replace(/\s+/g, ' ').trim().substring(0, 60);
 
-    // 3. Fallback logic for simulator coordinates
     if (tagName === 'BODY' || (targetId === '' && targetText === '')) {
       const btnA = document.getElementById('btn-1');
       const btnB = document.getElementById('btn-2');
@@ -66,7 +65,7 @@
       window_width: window.innerWidth,
       window_height: window.innerHeight,
       targetId: targetId,
-      targetText: targetText,
+      targetText: targetText || 'Page Canvas Body', // Clean fallback for dashboard UI
       tagName: tagName
     });
   });
