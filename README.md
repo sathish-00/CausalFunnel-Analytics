@@ -187,10 +187,14 @@ causalfunnel-analytics/
 
 ### User Journey Timeline
 
+<img width="1022" height="572" alt="user journey" src="https://github.com/user-attachments/assets/92a266c4-57b1-4c93-9e6c-81a35d5a6d3d" />
+
+
+### Heatmap Visualization 1
 <img width="1492" height="760" alt="user" src="https://github.com/user-attachments/assets/f40af672-1f25-4dcb-b0a8-6c5edc97fef1" />
 
 
-### Heatmap Visualization
+### Heatmap Visualization 2
 
 <img width="1485" height="763" alt="Heatmap" src="https://github.com/user-attachments/assets/e070169f-1568-4596-be4d-c0004df5a9c8" />
 
