@@ -198,7 +198,7 @@ causalfunnel-analytics/
 
 ```bash
 git clone <https://github.com/sathish-00/CausalFunnel-Analytics>
-cd causalfunnel-analytics
+cd Causalfunnel-Analytics
 ```
 
 ### Install Backend Dependencies
