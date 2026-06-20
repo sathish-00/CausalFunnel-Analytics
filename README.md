@@ -1,8 +1,8 @@
 # CausalFunnel Analytics Platform
 
-A full-stack user analytics platform built as part of the CausalFunnel Full Stack Engineer Assignment.
+## User Analytics Application
 
-The application tracks user interactions on a webpage, stores analytics events in MongoDB, and provides a dashboard for session analysis, user journey visualization, and click heatmap generation.
+A full-stack analytics platform developed as part of the CausalFunnel Full Stack Engineer Assignment. The application tracks user interactions on web pages, stores event data in MongoDB, and provides an analytics dashboard for session tracking, user journey visualization, and click heatmap analysis.
 
 ---
 
@@ -20,40 +20,54 @@ https://causalfunnel-dashboard.onrender.com/
 
 ---
 
+## Project Overview
+
+The system consists of three major components:
+
+### Event Tracking Layer
+
+A lightweight JavaScript tracking script that can be embedded into any webpage to capture user interactions.
+
+### Analytics Backend
+
+A Node.js and Express-based REST API responsible for receiving, processing, and storing telemetry events.
+
+### Analytics Dashboard
+
+A React-based dashboard that provides session analytics, user journey tracking, and click heatmap visualization.
+
+---
+
 ## Features
 
 ### Event Tracking
 
-The tracking script automatically captures:
+Tracks the following user events:
 
-* Page View Events
-* Click Events
+* Page Views (`page_view`)
+* Click Events (`click`)
 
 Each event contains:
 
 * Session ID
 * Event Type
-* Current Page URL
+* Page URL
 * Timestamp
 * Click Coordinates (x, y)
 
----
+### Session Analytics
 
-### Session Analytics Dashboard
-
-* View all tracked sessions
-* Display total events per session
+* View all active sessions
+* Display total event count per session
 * Inspect complete user journeys
-* Chronological event ordering
-
----
+* Chronological event visualization
 
 ### Heatmap Visualization
 
-* Select a tracked page
-* Visualize click locations
+* Select tracked pages
+* Display click locations
 * Analyze user interaction patterns
-* Identify high-engagement regions
+* Identify high-engagement areas
 
 ---
 
@@ -63,9 +77,9 @@ Each event contains:
 
 * React.js
 * JavaScript
-* CSS
+* CSS3
 
-### Tracking Layer
+### Event Tracking
 
 * Vanilla JavaScript
 * Browser Local Storage
@@ -78,7 +92,7 @@ Each event contains:
 ### Database
 
 * MongoDB Atlas
-* Mongoose
+* Mongoose ODM
 
 ### Deployment
 
@@ -95,8 +109,8 @@ causalfunnel-analytics/
 │   ├── controllers/
 │   ├── models/
 │   ├── routes/
-│   ├── server.js
-│   └── package.json
+│   ├── package.json
+│   └── server.js
 │
 ├── dashboard/
 │   ├── src/
@@ -121,35 +135,35 @@ causalfunnel-analytics/
 POST /api/track
 ```
 
-Stores page view and click telemetry events.
+Stores page view and click events.
 
-### Get Sessions
+### Fetch Sessions
 
 ```http
 GET /api/sessions
 ```
 
-Returns all tracked sessions with event counts.
+Returns all tracked sessions and event counts.
 
-### Get Session Events
+### Fetch Session Events
 
 ```http
 GET /api/sessions/:sessionId
 ```
 
-Returns ordered event history for a specific session.
+Returns all events for a selected session.
 
-### Get Heatmap Data
+### Fetch Heatmap Data
 
 ```http
 GET /api/heatmap?pageUrl=<page_url>
 ```
 
-Returns click coordinates used for heatmap rendering.
+Returns click coordinates for heatmap rendering.
 
 ---
 
-## Local Development Setup
+## Local Setup
 
 ### Clone Repository
 
@@ -167,20 +181,20 @@ npm install
 
 ### Configure Environment Variables
 
-Create a `.env` file inside the backend folder:
+Create a `.env` file inside the backend directory:
 
 ```env
 PORT=5000
 MONGO_URI=<your_mongodb_connection_string>
 ```
 
-### Start Backend Server
+### Run Backend
 
 ```bash
 npm run dev
 ```
 
-### Start Dashboard
+### Run Dashboard
 
 ```bash
 cd dashboard
@@ -190,35 +204,51 @@ npm start
 
 ---
 
-## Design Decisions
+## Design Decisions & Trade-offs
 
-### Stateless Session Tracking
+### Stateless Session Management
 
-Sessions are managed using browser localStorage identifiers. This removes server-side session storage requirements and enables easy horizontal scaling.
+Session identifiers are stored in browser localStorage, eliminating the need for server-side session storage and improving scalability.
 
 ### Flexible Event Schema
 
-Telemetry events contain different metadata depending on event type. A flexible schema design was chosen to support future event expansion without frequent schema migrations.
+Different event types contain different metadata. A flexible MongoDB schema allows easy extension of telemetry data without frequent schema modifications.
 
-### Cloud-Native Architecture
+### Cloud-Native Deployment
 
-MongoDB Atlas and Render were selected to provide scalable cloud deployment with minimal operational overhead.
+MongoDB Atlas and Render were chosen to simplify deployment, scalability, and infrastructure management.
 
 ---
 
-## Future Enhancements
+## Screenshots
+
+### Session Analytics Dashboard
+
+![Session Dashboard](screenshots/session-dashboard.png)
+
+### User Journey View
+
+![User Journey](screenshots/user-journey.png)
+
+### Heatmap Visualization
+
+![Heatmap](screenshots/heatmap.png)
+
+---
+
+## Future Improvements
 
 * Session Replay
 * Heatmap Density Clustering
 * Funnel Analytics
+* User Authentication
 * Device & Browser Analytics
-* Conversion Tracking
 * Real-Time Dashboard Updates
 
 ---
 
 ## Author
 
-Sathish Kodari
+**Sathish Kodari**
 
 Built for the CausalFunnel Full Stack Engineer Assignment.
