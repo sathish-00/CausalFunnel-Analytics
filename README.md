@@ -16,9 +16,7 @@ https://causalfunnel-test-site.onrender.com/demo.html
 
 https://causalfunnel-dashboard.onrender.com/
 
-### Backend API
 
-https://causalfunnel-analytics-4k49.onrender.com
 
 ---
 
