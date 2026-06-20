@@ -1,8 +1,29 @@
 # CausalFunnel Analytics Platform
 
-## User Analytics Application
+### Full-Stack User Analytics & Behavioral Insights Platform
 
-A full-stack analytics platform developed as part of the CausalFunnel Full Stack Engineer Assignment. The application captures user interactions in real time, stores analytics events in MongoDB, and provides an interactive dashboard for session analysis, user journey visualization, and click heatmap generation.
+Real-time user interaction tracking platform built with React, Node.js, Express, MongoDB Atlas, and Render. The system captures user behavior, visualizes session journeys, generates click heatmaps, and provides advanced engagement analytics including hotspot detection, dead-click analysis, and rage-click detection.
+
+
+## Highlights
+
+- Successfully deployed full-stack application on Render
+- Implemented real-time event tracking architecture
+- Built session journey visualization dashboard
+- Developed click heatmap analytics
+- Added behavioral analytics beyond assignment requirements
+- Integrated MongoDB Atlas for scalable event storage
+
+---
+
+**Key Highlights**
+- Real-Time Event Tracking
+- Session Journey Visualization
+- Click Heatmap Analytics
+- Engagement Scoring
+- Dead Click & Rage Click Detection
+- CSV / JSON Data Export
+- Cloud-Native Deployment
 
 ---
 
@@ -233,7 +254,8 @@ A flexible MongoDB schema was chosen to support different event types and allow 
 
 MongoDB Atlas and Render were selected to provide reliable cloud infrastructure, simplified deployment, and persistent data storage.
 
----
+
+
 
 ## Future Enhancements
 
@@ -246,6 +268,8 @@ MongoDB Atlas and Render were selected to provide reliable cloud infrastructure,
 * Custom Event Tracking
 
 ---
+
+
 
 ## Author
 
