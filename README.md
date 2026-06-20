@@ -68,39 +68,43 @@ The platform enables analysis of user journeys, interaction hotspots, engagement
 
 ### Event Tracking
 
-* Tracks page view events (`page_view`)
-* Tracks click events (`click`)
-* Generates persistent session identifiers using browser localStorage
-* Captures page URLs and timestamps
-* Records click coordinates (x, y)
-* Sends telemetry data asynchronously to the backend API
+- Real-time page view tracking
+- Real-time click event tracking
+- Persistent session identification using browser localStorage
+- Automatic capture of page URLs and timestamps
+- Click coordinate collection for interaction heatmaps
+- Asynchronous event delivery to the analytics API
 
 ### Session Analytics
 
-* View all tracked sessions
-* Display event counts per session
-* Analyze complete user journeys
-* Chronological event visualization
-* Session-level activity summaries
+- Track and analyze user sessions in real time
+- Display session-level event counts and engagement metrics
+- Visualize complete user journeys chronologically
+- Inspect user interaction patterns and navigation behavior
+- Identify dead clicks and rage-click activity
+- Generate actionable session insights and summaries
 
 ### Heatmap Visualization
 
-* Visual representation of click locations
-* User interaction hotspot detection
-* Engagement pattern analysis
+- Visualize click activity across tracked pages
+- Detect user interaction hotspots
+- Analyze engagement and navigation patterns
+- Identify areas of high user interest
+- Support data-driven UX improvements
 
 ### Advanced Analytics
 
-Additional features implemented beyond the assignment requirements:
+Implemented several advanced analytics features beyond the assignment scope:
 
-* Engagement Score Calculation
-* Hotspot Detection
-* Dead Click Detection
-* Rage Click Detection
-* Behavioral Insights & Recommendations
-* CSV Export Functionality
-* JSON Export Functionality
-* Session Search & Filtering
+- Engagement scoring to measure session quality
+- Hotspot detection for identifying high-interaction areas
+- Dead click detection for usability issue identification
+- Rage click detection for frustration analysis
+- Behavioral insights and automated recommendations
+- Session search and filtering capabilities
+- Export analytics data in CSV and JSON formats
+- User activity pattern analysis
+- Session-level performance summaries
 
 ---
 
