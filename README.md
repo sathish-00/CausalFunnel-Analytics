@@ -16,14 +16,7 @@ Real-time user interaction tracking platform built with React, Node.js, Express,
 
 ---
 
-**Key Highlights**
-- Real-Time Event Tracking
-- Session Journey Visualization
-- Click Heatmap Analytics
-- Engagement Scoring
-- Dead Click & Rage Click Detection
-- CSV / JSON Data Export
-- Cloud-Native Deployment
+
 
 ---
 
@@ -269,7 +262,11 @@ MongoDB Atlas and Render were selected to provide reliable cloud infrastructure,
 
 ---
 
+---
 
+## Conclusion
+
+This project demonstrates the complete lifecycle of a modern analytics platform, including client-side event tracking, backend API development, database integration, cloud deployment, session analytics, and user behavior visualization.
 
 ## Author
 
