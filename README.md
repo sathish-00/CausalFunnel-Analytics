@@ -168,7 +168,7 @@ Returns click coordinates for heatmap rendering.
 ### Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone <https://github.com/sathish-00/CausalFunnel-Analytics>
 cd causalfunnel-analytics
 ```
 
