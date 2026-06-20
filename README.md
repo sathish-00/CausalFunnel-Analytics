@@ -237,21 +237,19 @@ npm start
 
 ---
 
-## Design Decisions & Trade-offs
+## Assumptions & Trade-offs
 
 ### Stateless Session Tracking
 
-Session identifiers are stored in browser localStorage, eliminating the need for server-side session storage and enabling scalable deployments.
+Session identifiers are stored in browser localStorage rather than server-side sessions to improve scalability and reduce backend state management complexity.
 
 ### Flexible Event Schema
 
-A flexible MongoDB schema was chosen to support different event types and allow future analytics enhancements without major schema migrations.
+Different event types may contain different metadata. A flexible MongoDB schema allows future event extensions without requiring frequent schema migrations.
 
 ### Cloud-Native Architecture
 
-MongoDB Atlas and Render were selected to provide reliable cloud infrastructure, simplified deployment, and persistent data storage.
-
-
+MongoDB Atlas and Render were selected to simplify deployment, provide persistent cloud storage, and support scalable hosting.
 
 
 ## Future Enhancements
