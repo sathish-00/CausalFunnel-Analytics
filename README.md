@@ -51,18 +51,17 @@ The platform enables analysis of user journeys, interaction hotspots, engagement
 
 ## Assignment Requirements Coverage
 
-| Requirement              | Status |
-| ------------------------ | ------ |
-| Page View Tracking       | ✅      |
-| Click Tracking           | ✅      |
-| Session ID Management    | ✅      |
-| Event Storage in MongoDB | ✅      |
-| Backend APIs             | ✅      |
-| Sessions View            | ✅      |
-| User Journey View        | ✅      |
-| Heatmap Visualization    | ✅      |
-| Cloud Deployment         | ✅      |
-
+| Requirement | Status |
+|------------|---------|
+| Page View Tracking | ✓ |
+| Click Tracking | ✓ |
+| Session ID Management | ✓ |
+| Event Storage in MongoDB | ✓ |
+| Backend APIs | ✓ |
+| Sessions View | ✓ |
+| User Journey View | ✓ |
+| Heatmap Visualization | ✓ |
+| Cloud Deployment | ✓ |
 ---
 
 ## Key Features
